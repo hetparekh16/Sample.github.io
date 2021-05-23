@@ -1,0 +1,72 @@
+.navbar{
+    position: absolute;
+    top: -1em;
+    left: 100%;
+    right: 0;
+    left: 0;
+    background: $accent;
+    font-size: 1.2rem;
+    overflow: hidden;
+    clip-path: circle(0px at top right);
+    transition: clip-path ease-in-out 700ms;
+    ul{
+        display: flex;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    li{
+        flex: 1 1 auto;
+        border-bottom: 1px solid rgba(0, 0, 0, .15);
+        display: flex;
+    }
+    a{
+        flex-basis: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $text-inverse;
+        text-decoration: none;
+
+        &:hover{
+            background: rgba(0, 0, 0, 0.25);
+        }
+     }
+    &.nav--open{
+        clip-path: circle(150% at top right);
+
+    }
+}
+//Hamburger
+
+.nav-toggle{
+    position: absolute;
+    padding: 1em;
+    top: 0;
+    right: 1em;
+}
+.hamburger, .hamburger::before, .hamburger::after{
+    content: "";
+    display: block;
+    cursor: pointer;
+    background: $text-inverse;
+    height: 3px;
+    width: 1.5em;
+    border-radius: 3px;
+    transition: all ease-in 200ms;
+}
+.hamburger.ham--cross{
+    transform: rotate(45deg);
+    &::before{
+        transform: rotate(-90deg) translateY(0px);
+    }
+    &::after{
+        opacity: 0;
+    }
+}
+.hamburger::before{
+    transform: translateY(-6px);
+}
+.hamburger::after{
+    transform: translateY(3px);
+}

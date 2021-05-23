@@ -3,7 +3,7 @@
     top: 1em;
     right: 0;
     left: 0;
-    overflow-x: hidden;
+    // padding-top: 1em;
 }
 
 .logo{
@@ -11,6 +11,7 @@
     min-width: 10rem;
     max-width: 15rem;
 }
-.navbar{
-    display: none;
+.logo img{
+    width: 60%;
+    float: left;
 }
