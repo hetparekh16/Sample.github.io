@@ -344,6 +344,45 @@ template {
   display: none;
 }
 
+.grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.col {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  padding: 0 .75em;
+}
+
+@media (min-width: 700px) {
+  .col:first-of-type {
+    padding-left: 0;
+  }
+  .col:last-of-type {
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 700px) {
+  .col-1-3 {
+    -ms-flex-preferred-size: 33.333333%;
+        flex-basis: 33.333333%;
+  }
+  .col-2-3 {
+    -ms-flex-preferred-size: 66.6666666%;
+        flex-basis: 66.6666666%;
+  }
+  .col-1-2 {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+  }
+}
+
 *, *::after, *::before {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -369,6 +408,22 @@ img {
   margin: 0;
   padding: 0;
   list-style-type: none;
+}
+
+.sl-screen {
+  display: none;
+}
+
+@media screen and (min-width: 700px) {
+  .sl-screen {
+    display: block;
+  }
+}
+
+.bg-primary {
+  background: #048ca8;
+  color: white;
+  padding: 7.5em 2.5em 2.5em;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -404,22 +459,63 @@ h2 {
   font-weight: 300;
 }
 
+.title-box {
+  background: #d31869;
+  color: white;
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 2em;
+  -webkit-transform: translateY(30%);
+          transform: translateY(30%);
+}
+
+@media (min-width: 500px) {
+  .title-box {
+    max-width: 480px;
+  }
+}
+
+@media screen and (min-width: 495px) {
+  .title-box {
+    -webkit-transform: translateY(50%);
+            transform: translateY(50%);
+  }
+}
+
+.title-box + .bg-primary {
+  padding-top: 6em;
+}
+
+@media screen and (min-width: 495px) {
+  .title-box + .bg-primary {
+    padding-top: 8em;
+  }
+}
+
+.title-footer {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  line-height: 1;
+}
+
+.title-footer::after, .title-footer::before {
+  content: "";
+  display: block;
+  height: 2px;
+  background: white;
+  opacity: .3;
+}
+
+.title-footer::after {
+  margin: .5em 0 0;
+}
+
+.title-footer::before {
+  margin: 0 0 .5em;
+}
+
 .intro-text {
   font-size: 1.2rem;
-}
-
-.grid {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.col {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 100%;
-          flex: 0 0 100%;
 }
 
 .hero {
@@ -431,8 +527,19 @@ h2 {
   text-align: center;
 }
 
-.hero-img {
-  display: none;
+@media (min-width: 700px) {
+  .hero {
+    text-align: left;
+    padding-bottom: 0;
+    height: 90vmin;
+    min-height: 800px;
+  }
+}
+
+@media (min-width: 700px) {
+  .hero-text {
+    margin-top: 10vmax;
+  }
 }
 
 .main-header {
@@ -462,12 +569,30 @@ h2 {
   background: #d31869;
   font-size: 1.2rem;
   overflow: hidden;
-  -webkit-clip-path: circle(0px at top right);
-          clip-path: circle(0px at top right);
   -webkit-transition: -webkit-clip-path ease-in-out 700ms;
   transition: -webkit-clip-path ease-in-out 700ms;
   transition: clip-path ease-in-out 700ms;
   transition: clip-path ease-in-out 700ms, -webkit-clip-path ease-in-out 700ms;
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    -webkit-clip-path: circle(0px at top right);
+            clip-path: circle(0px at top right);
+  }
+}
+
+@media (min-width: 700px) {
+  .navbar {
+    position: relative;
+    -webkit-box-flex: 1;
+        -ms-flex: auto;
+            flex: auto;
+    background: none;
+    margin-top: 1em;
+    margin-left: 2em;
+    left: 0;
+  }
 }
 
 .navbar ul {
@@ -483,6 +608,16 @@ h2 {
       justify-content: space-around;
 }
 
+@media (min-width: 700px) {
+  .navbar ul {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    height: auto;
+  }
+}
+
 .navbar li {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
@@ -491,6 +626,14 @@ h2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+@media (min-width: 700px) {
+  .navbar li {
+    display: inline-block;
+    border: none;
+    text-align: right;
+  }
 }
 
 .navbar a {
@@ -509,8 +652,21 @@ h2 {
   text-decoration: none;
 }
 
+@media (min-width: 700px) {
+  .navbar a {
+    display: inline;
+  }
+}
+
 .navbar a:hover {
   background: rgba(0, 0, 0, 0.25);
+}
+
+@media (min-width: 700px) {
+  .navbar a:hover {
+    background: none;
+    color: #8e1047;
+  }
 }
 
 .navbar.nav--open {
@@ -523,6 +679,12 @@ h2 {
   padding: 1em;
   top: 0;
   right: 1em;
+}
+
+@media (min-width: 700px) {
+  .nav-toggle {
+    display: none;
+  }
 }
 
 .hamburger, .hamburger::before, .hamburger::after {
@@ -561,12 +723,8 @@ h2 {
           transform: translateY(3px);
 }
 
-.promo {
-  padding: 10vh 0;
-}
-
 .sales-points {
-  padding: 10vh 0;
+  padding: 10vh 0 0;
 }
 
 .sales-points .sales-point {
@@ -579,6 +737,72 @@ h2 {
 
 .sales-points .sales-point:last-child {
   margin-bottom: 0;
+}
+
+@media (min-width: 700px) {
+  .sales-points .sales-point:first-of-type {
+    margin-top: 0;
+  }
+}
+
+.promo .bg-primary {
+  text-align: left;
+  padding: 7.5em 2% 7.5em 7%;
+}
+
+.promo .img-promo-box {
+  background: url(../../img/phone-in-hand.jpg) center center/cover;
+}
+
+footer {
+  background-color: #444;
+  padding: 5em 0;
+  color: white;
+  position: relative;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(../../img/logo.svg) no-repeat center center/contain;
+  opacity: 0.08;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.social-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 3rem;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  opacity: 0.5;
+  margin: .7em 0;
+}
+
+.nav-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 0 auto;
+}
+
+.nav-footer a {
+  font-weight: 700;
+}
+
+.container--footer {
+  max-width: 28em;
 }
 
 .btn {
@@ -610,5 +834,42 @@ h2 {
 .btn--secondary:hover, .btn--primary:focus {
   background: white;
   color: #048ca8;
+}
+
+.CTA {
+  background: url(../../img/call-to-action-background.jpg) #16db93 center center/cover;
+  padding: 5em 0;
+  background-blend-mode: multiply;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 700px) {
+  .CTA {
+    padding: 10em 0;
+  }
+  .CTA::after, .CTA::before {
+    content: "";
+    display: block;
+    background: #d31869;
+    position: absolute;
+    width: 100%;
+    border: 1em solid white;
+  }
+  .CTA::before {
+    top: 0;
+    bottom: -1em;
+    -webkit-transform: skewX(55deg);
+            transform: skewX(55deg);
+    left: -100%;
+  }
+  .CTA::after {
+    top: -1em;
+    bottom: 0;
+    -webkit-transform: skewX(55deg);
+            transform: skewX(55deg);
+    right: -100%;
+  }
 }
 /*# sourceMappingURL=main.css.map */
